@@ -116,14 +116,14 @@ public class Login {
     *********************************************************
     *************************************************************/
             
-            final JDialog dialog = new JDialog((Frame) null, "", true);
-            dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            dialog.setSize(425,450);
-            dialog.setLocationRelativeTo(null);
+            final JDialog welcome = new JDialog((Frame) null, "", true);
+            welcome.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            welcome.setSize(425,450);
+            welcome.setLocationRelativeTo(null);
 
-            JLabel label = new JLabel();
-            label.setIcon(new ImageIcon("Welcome.png"));
-            dialog.add(label);
+            JLabel message = new JLabel();
+            message.setIcon(new ImageIcon("Welcome.png"));
+            welcome.add(message);
     
             //Referencing code on how to make the JOptionPane box close on its own
     
@@ -137,12 +137,12 @@ public class Login {
     *********************************************************
     *************************************************************/
             
-            Timer timer = new Timer(4000, (ActionEvent e) -> {
-               dialog.dispose();
+            Timer timer = new Timer(2000, (ActionEvent e) -> {
+               welcome.dispose();
             });
             timer.setRepeats(false);
             timer.start();
-            dialog.setVisible(true);
+            welcome.setVisible(true);
             
             //Welcome
             ImageIcon gifIcon2 = new ImageIcon("Clover.gif");
@@ -161,7 +161,7 @@ public class Login {
             that will be implimented in main if loginUser is true*/
         } 
         else {
-            JOptionPane.showMessageDialog(null,"Failed login");
+            JOptionPane.showMessageDialog(null,"Failed login -_-");
             //return fail;
             /*Returns this message to be displayed via a JOptionPane.showMessageDialog box 
             that will be implimented in main if loginUser is false*/

@@ -55,11 +55,11 @@ public class Tasks {
             
             developer = JOptionPane.showInputDialog(null, "Plese enter " + taskName + "'s developer " + (i+1));
             //Makes sure user enters a name and surname
-            if (!developer.contains(" ")) {
+            if (!developer.matches(".*[A-Z].*" + " " + ".*[A-Z].*") || !developer.matches(".*[a-z].*" + " " + ".*[a-z].*")) {
                 do{
-                JOptionPane.showMessageDialog(null, "Error! Please enter name and surname");
+                JOptionPane.showMessageDialog(null, "Error! Please enter name and surname in small and big letters");
                 developer = JOptionPane.showInputDialog(null, "Plese enter " + taskName + "'s developer " + (i+1));
-                }while (!developer.contains(" "));
+                }while (!developer.matches(".*[A-Z].*" + " " + ".*[A-Z].*") || !developer.matches(".*[a-z].*" + " " + ".*[a-z].*"));
             }
             
             //Hours for task contributes to accumulator

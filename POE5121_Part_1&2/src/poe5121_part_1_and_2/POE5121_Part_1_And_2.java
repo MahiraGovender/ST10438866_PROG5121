@@ -203,6 +203,12 @@ public class POE5121_Part_1_And_2 {
         JLabel message = new JLabel();
         message.setIcon(new ImageIcon("ComingSoon.png"));
         
+         Timer timer2 = new Timer(1500, (ActionEvent e) -> {
+            showReport.dispose();
+        });
+        timer2.setRepeats(false);
+        timer2.start();
+        
         showReport.add(message);
         showReport.setVisible(true);
         break;
