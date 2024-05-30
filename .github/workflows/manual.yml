@@ -15,7 +15,7 @@ jobs:
       - name: List contents
         run: ls
       - name: compile classes
-        working-directory: ./src
+        working-directory: ./src/poe5121_part_1_and_2
         run: >-
           javac -cp 
           "../testresources/junit-platform-console-standalone-1.6.0.jar" 
