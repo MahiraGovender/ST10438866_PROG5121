@@ -375,12 +375,12 @@ public class Tasks {
         
         }
        // if the task name of this task matches the task name
-        else { removed = true;}
+        else {removed = true;}
     }
 
     // if no value was removed then ask user to try again 
     if (!removed){ 
-        JOptionPane.showMessageDialog(null, "Transaction could not be removed. Please try again");
+        JOptionPane.showMessageDialog(null, "Task could not be removed. Please try again");
         
     }
     else { // a value was removed from the arrays 
@@ -393,11 +393,31 @@ public class Tasks {
       arrStatus = tempArrStatus;
       arrDescription = tempArrDescription;
       // tell the user that the value was removed successfully 
-      JOptionPane.showMessageDialog(null, "Transaction removed successfully.");
+      JOptionPane.showMessageDialog(null, "Task removed successfully.");
       // decrease the task number since one transaction was removed 
       taskNumber--;
     }
     return removed;
+}
+     
+     public void displayDoneTasks() {
+             
+    StringBuilder display = new StringBuilder();
+    for (int i =0; i<= taskNumber; i++)
+    {
+        if (arrStatus[i].equalsIgnoreCase("Done")){
+       //append, toString...
+        display.append("Task Name: ").append(arrTaskName[i]);
+        display.append("\nDesctiption: ").append(arrDescription[i]);
+        display.append("\nDeveloper Details: ").append(arrDeveloper[i]);
+        display.append("\nTask Duration: ").append(arrNumTasks[i]);
+        display.append("\nTask ID: ").append(arrTaskID[i]);
+        display.append("\nTask Status: ").append(arrStatus[i]).append("\n\n");
+
+        }
+       
+    }
+    JOptionPane.showMessageDialog(null, display.toString());
 }
     
 }

@@ -230,15 +230,6 @@ public TasksTest() {
         // retrieve actual results by calling method from transaction class
         assertEquals(expectedResults, actualResults);
     }
-
-    /*@Test
-    public void testSearchTaskNames() {
-        Tasks taskTest = new Tasks();
-         boolean actual= taskTest.SearchTaskNames("Create Login");
-     // retrieve actual results by calling method from transaction class
-       
-     assertEquals(true, actual);// determine if actual result is true
-    }*/
     
      @Test
     public void testSearchTaskNames() {
@@ -263,6 +254,11 @@ public TasksTest() {
         String message = "Entry 'Create reports' successfully deleted";
 
        assertEquals(taskNames, taskNames, message);
+    }
+    
+    @Test
+    public void testDisplayDoneTasks() {
+        
     }
     
 }
