@@ -1,36 +1,24 @@
-name: Workflow
-'on':
+name: Java CI
+
+on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
-  workflow_dispatch: null
+    branches: [ "main" ]
+
 jobs:
-  build:
+  Java_CI:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: List contents
-        run: ls
-      - name: compile classes
-        working-directory: ./src/poe5121_final
-        run: >-
-          javac -cp 
-          "../testresources/junit-platform-console-standalone-1.6.0.jar" 
-          "./poe5121_final/Login.java" "./poe5121_final/POE5121_Final.java" "./poe5121_final/Tasks.java" 
-        
-      - name: List contents of src directory after compile
-        working-directory: ./src/poe5121_final
-        run: ls
-      - name: create testresources/poe5121_final directory
-        run: mkdir -p ./testresources/poe5121_part_1_and_2
-      - name: copy compiled classes to testresources directory
-        working-directory: ./src/poe5121_final
-        run: cp -t  "../../test/poe5121_part_1_and_2 " Login.class POE5121_Final.class Tasks.class
-      - name: copy compiled Test classes to testresources directory
-        working-directory: ./test/poe5121_final
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
         run: cp -t  "../../testresources/packageName" LoginTest.class TasksTest.class
       - name: List contents test package
         working-directory: ./test/poe5121_final
